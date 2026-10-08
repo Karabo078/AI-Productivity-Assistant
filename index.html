@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Productivity Assistant - an AI-powered workplace productivity portfolio project.">
+  <title>AI Productivity Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">AI Productivity Assistant</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#tools">AI Tools</a>
+      <a href="#prompting">Prompt Engineering</a>
+      <a href="#responsible-ai">Responsible AI</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <span class="badge">AI-Powered Workplace Project</span>
+        <h1>Work smarter with your <span>AI Productivity Assistant.</span></h1>
+        <p>
+          A practical assistant designed to help with email writing, meeting summaries,
+          task planning, research support, and workplace questions.
+        </p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#tools">Try the tools</a>
+          <a class="button secondary" href="#about">Learn more</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">PROJECT OVERVIEW</span>
+        <h2>One assistant for everyday workplace tasks</h2>
+        <p>
+          This project demonstrates how generative AI and effective prompt engineering
+          can reduce repetitive work while keeping people in control of important decisions.
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">KEY FEATURES</span>
+        <h2>Built around real workplace needs</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">✉️</div>
+          <h3>Email Generation</h3>
+          <p>Create clear, professional workplace emails from simple instructions.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📝</div>
+          <h3>Meeting Summaries</h3>
+          <p>Turn meeting notes into summaries, decisions, and action items.</p>
+        </article>
+        <article class="card">
+          <div class="icon">✅</div>
+          <h3>Task Planning</h3>
+          <p>Break large goals into practical steps and priorities.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔎</div>
+          <h3>Research Assistance</h3>
+          <p>Structure research questions and identify useful areas to investigate.</p>
+        </article>
+        <article class="card">
+          <div class="icon">💬</div>
+          <h3>Chatbot Interaction</h3>
+          <p>Ask workplace productivity questions through a simple chat interface.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">INTERACTIVE DEMO</span>
+        <h2>Try the productivity tools</h2>
+        <p>
+          These browser-based demonstrations show the intended workflows. They do not
+          send your information to an external AI service.
+        </p>
+      </div>
+
+      <div class="tool-tabs">
+        <button class="tab active" data-tool="email">Email Generator</button>
+        <button class="tab" data-tool="meeting">Meeting Summary</button>
+        <button class="tab" data-tool="tasks">Task Planner</button>
+        <button class="tab" data-tool="research">Research Assistant</button>
+        <button class="tab" data-tool="chat">Chatbot</button>
+      </div>
+
+      <div class="tool-panel">
+        <div class="tool-form" id="email-tool">
+          <h3>✉️ Email Generator</h3>
+          <label for="email-input">What do you need to communicate?</label>
+          <textarea id="email-input" placeholder="Example: Ask my manager for one day of leave next Friday."></textarea>
+          <button class="button primary" onclick="generateEmail()">Generate email</button>
+          <div class="result" id="email-result"></div>
+        </div>
+
+        <div class="tool-form hidden" id="meeting-tool">
+          <h3>📝 Meeting Summary</h3>
+          <label for="meeting-input">Paste your meeting notes</label>
+          <textarea id="meeting-input" placeholder="Example: Team meeting. We agreed to finish the website by Friday. Sarah will test it and John will prepare the presentation."></textarea>
+          <button class="button primary" onclick="summarizeMeeting()">Summarize meeting</button>
+          <div class="result" id="meeting-result"></div>
+        </div>
+
+        <div class="tool-form hidden" id="tasks-tool">
+          <h3>✅ Task Planner</h3>
+          <label for="tasks-input">What goal do you want to complete?</label>
+          <textarea id="tasks-input" placeholder="Example: Complete my AI project before tomorrow."></textarea>
+          <button class="button primary" onclick="planTasks()">Create plan</button>
+          <div class="result" id="tasks-result"></div>
+        </div>
+
+        <div class="tool-form hidden" id="research-tool">
+          <h3>🔎 Research Assistant</h3>
+          <label for="research-input">Enter your research topic</label>
+          <textarea id="research-input" placeholder="Example: How can generative AI improve workplace productivity?"></textarea>
+          <button class="button primary" onclick="assistResearch()">Create research plan</button>
+          <div class="result" id="research-result"></div>
+        </div>
+
+        <div class="tool-form hidden" id="chat-tool">
+          <h3>💬 Workplace Chatbot</h3>
+          <label for="chat-input">Ask a productivity question</label>
+          <textarea id="chat-input" placeholder="Example: How can I prioritize my tasks?"></textarea>
+          <button class="button primary" onclick="chatAssistant()">Ask assistant</button>
+          <div class="result" id="chat-result"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prompting" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">PROMPT ENGINEERING</span>
+        <h2>Better prompts produce better results</h2>
+        <p>
+          The project uses a structured approach: define the role, provide context,
+          state the task clearly, specify constraints, and describe the desired output.
+        </p>
+      </div>
+      <div class="prompt-grid">
+        <div class="prompt-card"><strong>1. Role</strong><span>Tell the AI what role it should perform.</span></div>
+        <div class="prompt-card"><strong>2. Context</strong><span>Give relevant background information.</span></div>
+        <div class="prompt-card"><strong>3. Task</strong><span>State exactly what you need.</span></div>
+        <div class="prompt-card"><strong>4. Constraints</strong><span>Set tone, length, audience, or format.</span></div>
+        <div class="prompt-card"><strong>5. Output</strong><span>Explain what the final answer should look like.</span></div>
+      </div>
+    </section>
+
+    <section id="responsible-ai" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">RESPONSIBLE AI</span>
+        <h2>AI should assist people, not replace judgment</h2>
+      </div>
+      <div class="responsible-grid">
+        <div><h3>🔐 Privacy</h3><p>Avoid entering confidential or sensitive workplace information into public AI tools.</p></div>
+        <div><h3>✓ Accuracy</h3><p>Review AI-generated content before using it, especially for important decisions.</p></div>
+        <div><h3>⚖️ Bias</h3><p>Question outputs that may contain unfair assumptions or incomplete perspectives.</p></div>
+        <div><h3>👤 Human oversight</h3><p>Keep a human responsible for final decisions and published information.</p></div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="contact-box">
+        <span class="eyebrow">PROJECT</span>
+        <h2>AI Productivity Assistant</h2>
+        <p>Created as a practical demonstration of generative AI, prompt engineering, and responsible AI use.</p>
+        <a class="button secondary" href="#home">Back to top ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 AI Productivity Assistant · Student Portfolio Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
